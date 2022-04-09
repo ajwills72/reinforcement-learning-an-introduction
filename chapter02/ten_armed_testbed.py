@@ -116,10 +116,15 @@ def simulate(runs, time, bandits):
 
 
 def figure_2_1():
-    plt.violinplot(dataset=np.random.randn(200, 10) + np.random.randn(10))
+    plt.violinplot(dataset=np.random.randn(20000, 10) +
+                   np.array([.25, -.75, 1.5, .33, 1.25, -1.5, -.25, -1.1, .9, -.5]), 
+                   showmeans=True, showextrema=False, widths=0.5)
     plt.xlabel("Action")
+    plt.xticks(np.arange(10)+1)
     plt.ylabel("Reward distribution")
-    plt.savefig('../images/figure_2_1.png')
+    plt.yticks(np.arange(7)-3)
+    plt.ylim(-4.5,4.5)
+    plt.savefig('../images/figure_2_1.pdf')
     plt.close()
 
 
